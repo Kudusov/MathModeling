@@ -6,6 +6,8 @@ from numpy import finfo, float32
 
 EPS = finfo(float32).eps
 
+def some_feature():
+    pass
 
 def from_decimal_to_str(arr):
     result = list()
