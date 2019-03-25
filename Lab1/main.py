@@ -170,9 +170,19 @@ def runge_kutta_4(begin, end, step):
 
 
 if __name__ == '__main__':
+    table_x = list()
     table = PrettyTable()
-    pikar_begin, pikar_end = 3, 6
-    begin, end, step = float(input("Начало: ")), float(input("Конец: ")), float(input("Шаг: "))
+    pikar_begin, pikar_end = 3, 4
+    print("Начало: 0")
+    begin, end, step = 0, float(input("Конец: ")), float(input("Шаг: "))
+    count = int((end - begin) / step)
+    x_begin = begin
+    for i in range(count):
+        x_begin += step
+        table_x.append(('{:.2f}'.format(x_begin)))
+
+
+    table.add_column(fieldname="x", align='r', column=table_x)
     for i in range(pikar_begin, pikar_end):
         pikar = Pikar(power=i)
         pikar.fill_expression()
